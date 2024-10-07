@@ -19,21 +19,22 @@ embassy-net-enc28j60 = { version = "0.1.0", features = ["defmt"] }
 
 defmt = "0.3"
 defmt-rtt = "0.4"
-
-fixed = "1.10.0"
-static_cell = { version = "2" }
 cortex-m = { version = "0.7.6", features = ["inline-asm", "critical-section-single-core"] }
 cortex-m-rt = "0.7.0"
 panic-probe = { version = "0.3", features = ["print-defmt"] }
-rand = { version = "0.8.4", default-features = false }
+
 embedded-storage = "0.3.1"
-usbd-hid = "0.8.1"
-serde = { version = "1.0.136", default-features = false }
 embedded-hal = { version = "1.0" }
 embedded-hal-async = { version = "1.0" }
 embedded-hal-bus = { version = "0.1", features = ["async"] }
-num-integer = { version = "0.1.45", default-features = false }
+
+fixed = "1.10.0"
+usbd-hid = "0.8.1"
 microfft = "0.5.0"
+static_cell = { version = "2" }
+rand = { version = "0.8.4", default-features = false }
+serde = { version = "1.0.136", default-features = false }
+num-integer = { version = "0.1.45", default-features = false }
 
 [profile.release]
 debug = 2
