@@ -1,6 +1,7 @@
 #![no_std]
 #![no_main]
 
+use defmt::*;
 use embassy_executor::Spawner;
 use embassy_nrf::gpio::{Level, Output, OutputDrive};
 use embassy_time::Timer;
@@ -27,6 +28,8 @@ async fn main(_spawner: Spawner) {
     let mut col3 = Output::new(p.P0_31, Level::Low, OutputDrive::Standard);
     let mut col4 = Output::new(p.P1_05, Level::Low, OutputDrive::Standard);
     let mut col5 = Output::new(p.P0_30, Level::Low, OutputDrive::Standard);
+
+    info!("GPIO initialized!");
 
     loop {
         col1.set_high();
