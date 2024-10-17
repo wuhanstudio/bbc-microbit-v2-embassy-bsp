@@ -1,7 +1,8 @@
 # Rust Embassy Examples (BBC Microbit v2)
 
 > Install Rust: https://www.rust-lang.org/tools/install
->  
+>
+> $ rustup target add thumbv7em-none-eabi  
 > $ rustup component add llvm-tools-preview  
 > $ cargo install cargo-binutils  
 
