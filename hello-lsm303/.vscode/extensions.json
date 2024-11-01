@@ -1,0 +1,7 @@
+{
+    "recommendations": [
+        "ms-vscode.vscode-embedded-tools",
+        "ms-vscode.vscode-serial-monitor",
+        "probe-rs.probe-rs-debugger",
+    ]
+}
