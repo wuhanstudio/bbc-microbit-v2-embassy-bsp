@@ -7,7 +7,9 @@ use hal::twim;
 use embassy_nrf::{self as hal, twim::Twim};
 use embassy_time::Delay;
 use embedded_hal_async::delay::DelayNs;
+
 use lsm303agr::Lsm303agr;
+use micromath::F32Ext;
 
 use defmt_rtt as _;
 use panic_rtt_target as _; // Panic handler
@@ -48,11 +50,15 @@ async fn main(_s: embassy_executor::Spawner) -> ! {
     loop {
         if sensor.mag_status().unwrap().xyz_new_data() {
             let data = sensor.magnetic_field().unwrap();
+            let x_f32 = (data.x_nt() / 1000) as f32;
+            let y_f32 = (data.y_nt() / 1000) as f32;
+
             info!(
-                "Magnetic field: x {} y {} z {}",
+                "Magnetic field: x {} y {} z {} h {}",
                 data.x_nt() / 1000,
                 data.y_nt() / 1000,
-                data.z_nt() / 1000
+                data.z_nt() / 1000,
+                (y_f32).atan2(x_f32).to_degrees() + 180.0
             );
         } else {
             info!("No data")

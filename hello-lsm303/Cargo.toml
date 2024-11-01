@@ -25,6 +25,7 @@ bitflags = "2.3.3"
 maybe-async-cfg = "0.2.4"
 
 lsm303agr = "1.1.0"
+micromath = "=2.1.0"
 
 [profile.release]
 lto = true
