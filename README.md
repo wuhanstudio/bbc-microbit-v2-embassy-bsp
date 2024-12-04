@@ -18,3 +18,9 @@ $ cargo run --bin blinky --release
 # Generate bin firmware
 $ cargo objcopy --release -- -O binary firmware.bin
 ```
+
+```
+$ cd hello-world
+$ cargo build --release
+$ cargo objcopy --release -- -O binary firmware.bin
+```
